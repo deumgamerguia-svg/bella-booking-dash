@@ -1,8 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { CalendarDays, ChevronLeft, Heart, MoreVertical, Check, Share2, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { mountBooking } from '@/lib/booking-flow';
 import { LashLogo } from '@/components/lash-logo';
 import { PanelNavigation } from '@/components/panel-navigation';
 import { services, formatPrice } from '@/lib/services';
@@ -29,6 +29,8 @@ function Index() {
     try { await navigator.clipboard.writeText(window.location.href); setCopied(true); }
     catch { setMenuOpen(false); }
   }
+
+  if (selected) return <BookingScreen service={selected} onBack={() => setSelected(null)} />;
 
   return <main className="lash-panel">
     <header className="cover">
@@ -60,14 +62,13 @@ function Index() {
     </section>
     <div className="bottom-wave" aria-hidden="true" />
     <PanelNavigation />
-    <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null); }}>
-      <DialogContent className="booking-dialog">
-        <CalendarDays className="text-primary" size={30} />
-        <DialogTitle>{selected?.name}</DialogTitle>
-        <DialogDescription className="text-muted-foreground">Agendamento online ainda não disponível.</DialogDescription>
-        <p className="text-xl font-semibold text-primary">{selected && formatPrice(selected.price)}</p>
-        <Button onClick={() => setSelected(null)}>Voltar aos serviços</Button>
-      </DialogContent>
-    </Dialog>
   </main>;
+}
+
+function BookingScreen({ service, onBack }: { service: (typeof services)[number]; onBack: () => void }) {
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (root.current) return mountBooking(root.current, service, onBack);
+  }, [service, onBack]);
+  return <div ref={root} />;
 }
