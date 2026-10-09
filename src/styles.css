@@ -221,6 +221,8 @@ body { margin: 0; font-family: var(--font-sans); background: var(--page-surround
   .booking-button { height: 40px; padding: 0 12px; font-size: 14px; gap: 8px; }
   .panel-navigation { position: fixed; bottom: 10px; left: 10px; right: 10px; height: 74px; max-width: 500px; margin: auto; backdrop-filter: blur(16px); }
   .panel-navigation a span { font-size: 10px; }
+  .bottom-wave { height: 80px; }
+  .bottom-wave::after { display: none; }
   .inner-panel { padding: 20px; }
 }
 @media (max-width: 370px) {
