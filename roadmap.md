@@ -1,4 +1,4 @@
 # Cloud Panel Pro
-- [ ] Recreate Painel 1 from the Bella Lash reference.
-- [ ] Verify service buttons and navigation.
-- [ ] Explain GitHub connection requirement; the supplied repository is not linked here.
+- [x] Recreate Painel 1 from the Bella Lash reference.
+- [x] Verify service buttons and navigation.
+- [ ] GitHub sync is blocked until the user connects the supplied repository in Lovable.

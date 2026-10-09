@@ -170,7 +170,7 @@ body { margin: 0; font-family: var(--font-sans); background: var(--page-surround
 .lash-logo { width: 160px; height: 160px; border: 2px solid var(--card); border-radius: 50%; position: absolute; top: -75px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--logo-gradient); color: var(--foreground); }
 .logo-heart { color: var(--rose-ink); margin-top: 2px; }
 .lash-mark { width: 100px; height: 36px; margin-top: -3px; }
-.logo-wordmark { font-family: 'Great Vibes', cursive; font-size: 37px; line-height: 1.1; margin-top: 2px; }
+.logo-wordmark { font-family: 'Great Vibes', cursive; font-size: 34px; line-height: 1.1; margin-top: 2px; white-space: nowrap; text-align: center; }
 .logo-caption { font-size: 9px; letter-spacing: 2px; margin-top: 6px; }
 .brand-heading h1 { font-family: var(--font-display); font-weight: 400; font-size: 39px; line-height: 1.2; margin: 25px 0 0; }
 .brand-heading p { font-family: var(--font-display); color: var(--rose-ink); font-size: 21px; margin: 0; text-align: center; }
@@ -186,7 +186,7 @@ body { margin: 0; font-family: var(--font-sans); background: var(--page-surround
 .booking-button svg { width: 19px; height: 19px; }
 .booking-button:hover { opacity: .9; }
 .bottom-wave { position: absolute; bottom: 0; left: -15%; width: 130%; height: 117px; background: var(--rose-soft); border-radius: 50% 45% 0 0; transform: rotate(-2deg); }
-.bottom-wave::after { content: ''; position: absolute; width: 65%; height: 55px; background: var(--background); border-radius: 0 0 70% 55%; left: 21%; top: -23px; transform: rotate(3deg); }
+.bottom-wave::after { content: ''; position: absolute; width: 65%; height: 55px; background: var(--background); border-radius: 50%; left: 21%; top: -37px; transform: rotate(3deg); }
 .panel-navigation { position: absolute; z-index: 10; bottom: 14px; left: 14px; right: 14px; height: 82px; display: grid; grid-template-columns: 1fr 1.25fr 1fr; padding: 8px 7px; border-radius: 45px 45px 22px 22px; border: 1px solid var(--card); background: color-mix(in oklch, var(--card) 64%, transparent); }
 .panel-navigation a { display: flex; flex-direction: column; gap: 5px; height: 100%; padding: 5px 0; color: var(--muted-foreground); background: none; }
 .panel-navigation a svg { width: 25px; height: 25px; stroke-width: 1.6; }
@@ -205,10 +205,10 @@ body { margin: 0; font-family: var(--font-sans); background: var(--page-surround
 @media (max-width: 600px) {
   body { background: var(--background); }
   .lash-panel { margin: 0 auto; min-height: 100svh; box-shadow: none; }
-  .cover { height: 266px; }
+  .cover { height: 240px; }
   .cover-actions { inset: 26px 14px auto; }
   .cover-button { width: 38px; height: 38px; }
-  .panel-body { padding: 0 10px 133px; margin-top: -46px; }
+  .panel-body { padding: 0 10px 112px; margin-top: -46px; }
   .brand-heading { padding-top: 63px; margin-bottom: 16px; }
   .lash-logo { width: 146px; height: 146px; top: -76px; }
   .brand-heading h1 { font-size: 35px; margin-top: 12px; }
@@ -219,7 +219,7 @@ body { margin: 0; font-family: var(--font-sans); background: var(--page-surround
   .service-content h2 { font-size: 17px; margin-bottom: 14px; }
   .service-price { font-size: 19px; }
   .booking-button { height: 40px; padding: 0 12px; font-size: 14px; gap: 8px; }
-  .panel-navigation { bottom: 10px; left: 10px; right: 10px; height: 74px; }
+  .panel-navigation { position: fixed; bottom: 10px; left: 10px; right: 10px; height: 74px; max-width: 500px; margin: auto; backdrop-filter: blur(16px); }
   .panel-navigation a span { font-size: 10px; }
   .inner-panel { padding: 20px; }
 }
