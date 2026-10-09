@@ -237,3 +237,7 @@ body { margin: 0; font-family: var(--font-sans); background: var(--page-surround
 .service-meta { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
 .service-duration { font-size: 12px; line-height: 1.3; color: var(--muted-foreground); white-space: nowrap; }
 @media (max-width: 340px) { .service-item > img { width: 78px; } .service-item { gap: 8px; } .service-bottom { gap: 6px; } }
+
+/* Match service duration and clock to the price in every theme. */
+.service-duration { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 500; line-height: 1.4; color: var(--primary); }
+.service-duration svg { width: 17px; height: 17px; flex-shrink: 0; stroke-width: 1.8; }
