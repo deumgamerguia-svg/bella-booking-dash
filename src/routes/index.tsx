@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import { CalendarDays, ChevronLeft, Heart, MoreVertical, Check, Share2 } from 'lucide-react';
+import { CalendarDays, ChevronLeft, Heart, MoreVertical, Check, Share2, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { LashLogo } from '@/components/lash-logo';
@@ -53,7 +53,7 @@ function Index() {
           <img src={service.image} alt={service.name} width={816} height={816} loading="lazy" />
           <div className="service-content">
             <h2>{service.name}</h2>
-            <div className="service-bottom"><div className="service-meta"><span className="service-price">{formatPrice(service.price)}</span><span className="service-duration" aria-label="Duração do serviço">{service.durationMinutes} min</span></div><Button className="booking-button" onClick={() => setSelected(service)}><CalendarDays />Agendar</Button></div>
+            <div className="service-bottom"><div className="service-meta"><span className="service-price">{formatPrice(service.price)}</span><span className="service-duration" aria-label="Duração do serviço"><Clock aria-hidden="true" />{service.durationMinutes} min</span></div><Button className="booking-button" onClick={() => setSelected(service)}><CalendarDays />Agendar</Button></div>
           </div>
         </article>)}
       </div>
