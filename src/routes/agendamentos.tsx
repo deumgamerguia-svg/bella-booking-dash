@@ -1,6 +1,9 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { CalendarDays, ChevronLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { createFileRoute } from '@tanstack/react-router';
+import { useRef, useEffect } from 'react';
+import { LashLogo } from '@/components/lash-logo';
+import { services } from '@/lib/services';
+import { mountAppointments } from '@/lib/appointments-view';
+import cover from '@/assets/lash-treatment.jpg';
 import { PanelNavigation } from '@/components/panel-navigation';
 
 export const Route = createFileRoute('/agendamentos')({
@@ -16,10 +19,11 @@ export const Route = createFileRoute('/agendamentos')({
 });
 
 function Appointments() {
-  return <main className="lash-panel inner-panel">
-    <header className="inner-header"><Button asChild variant="ghost" size="icon"><Link to="/" aria-label="Voltar"><ChevronLeft /></Link></Button><span>Bella Lash</span></header>
-    <h1 className="inner-title">Meus agendamentos</h1>
-    <div className="empty-state"><CalendarDays size={44} strokeWidth={1.3} /><h2>Nenhum agendamento</h2><p>O agendamento online ainda não está disponível.</p><Button asChild><Link to="/">Ver serviços</Link></Button></div>
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (root.current) return mountAppointments(root.current, [services[0].image, services[1].image, services[0].image]); }, []);
+  return <main className="lash-panel appointments-panel">
+    <header className="cover"><img src={cover} alt="Aplicação profissional de extensão de cílios" /></header>
+    <section className="panel-body"><div className="brand-heading"><LashLogo /></div><div ref={root} /></section>
     <div className="bottom-wave" aria-hidden="true" /><PanelNavigation />
   </main>;
 }
