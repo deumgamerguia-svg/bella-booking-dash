@@ -277,4 +277,4 @@ body { margin: 0; font-family: var(--font-sans); background: var(--page-surround
 
 /* Reference description: beneath the title, above the price. */
 .service-with-description .service-content h2{margin-bottom:4px}
-.service-item .service-description{margin:0 0 8px;font:400 16px/1.25 Arial,sans-serif;letter-spacing:0;color:oklch(0.662 0.049 258)}
+.service-item .service-description{margin:0 0 8px;font:400 13.6px/1.25 Arial,sans-serif;letter-spacing:0;color:oklch(0.662 0.049 258)}
