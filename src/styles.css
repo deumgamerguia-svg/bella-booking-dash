@@ -263,3 +263,7 @@ body { margin: 0; font-family: var(--font-sans); background: var(--page-surround
   :is(button, .panel-navigation a):hover,
   :is(button, .panel-navigation a):active { transform: none !important; }
 }
+
+/* Keep navigation stationary while its active surface moves sideways. */
+.panel-navigation .nav-sliding-indicator{position:absolute;top:8px;bottom:8px;left:7px;width:calc((100% - 14px)/2);border-radius:35px;background:color-mix(in oklch,var(--card) 55%,transparent);box-shadow:0 2px 10px #ac426514;pointer-events:none}
+.panel-navigation a{position:relative;z-index:1}
