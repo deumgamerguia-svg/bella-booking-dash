@@ -51,10 +51,11 @@ function Index() {
         <Heart className="brand-heart" size={14} fill="currentColor" />
       </div>
       <div className="service-list">
-        {services.map(service => <article className="service-item" key={service.id}>
+        {services.map(service => <article className={"service-item" + (service.name === 'Extensão de Cílios' ? ' service-with-description' : '')} key={service.id}>
           <img src={service.image} alt={service.name} width={816} height={816} loading="lazy" />
           <div className="service-content">
             <h2>{service.name}</h2>
+            {service.name === 'Extensão de Cílios' && <p className="service-description">Cílios mais longos e volumosos para realçar o seu olhar.</p>}
             <div className="service-bottom"><div className="service-meta"><span className="service-price">{formatPrice(service.price)}</span><span className="service-duration" aria-label="Duração do serviço"><Clock aria-hidden="true" />{service.durationMinutes} min</span></div><Button className="booking-button" onClick={() => setSelected(service)}><CalendarDays />Agendar</Button></div>
           </div>
         </article>)}
